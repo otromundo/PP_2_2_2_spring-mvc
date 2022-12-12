@@ -9,8 +9,12 @@ import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService{
+    private final CarDao carDao;
+
     @Autowired
-    CarDao carDao;
+    public CarServiceImpl(CarDao carDao) {
+        this.carDao = carDao;
+    }
 
     @Override
     public List<Car> getList(int quantity) {

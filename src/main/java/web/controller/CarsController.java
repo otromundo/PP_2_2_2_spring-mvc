@@ -11,8 +11,12 @@ import java.util.Optional;
 
 @Controller
 public class CarsController {
+    private final CarService carService;
+
     @Autowired
-    CarService carService;
+    public CarsController(CarService carService) {
+        this.carService = carService;
+    }
 
     @GetMapping(value = "/cars")
     public String getCars(ModelMap model, @RequestParam("count") Optional<Integer> quantity) {
